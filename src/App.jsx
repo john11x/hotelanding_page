@@ -1,21 +1,48 @@
+import { useState } from "react"
 import Sidebar from "./components/Sidebar"
 import Button from "./components/Button"
 import InfoCard from "./components/InfoCard"
+import ReceiptCard from "./components/ReceiptCard"
+import WelcomeCard from "./components/WelcomeCard"
+import CopyButton from "./components/CopyButton"
 
 function App() {
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+
   return (
     <div className="layout bg-neutral-100 font-sans text-neutral-900">
-      <aside className="border-r border-neutral-400/60 bg-neutral-100 p-6 [grid-area:sidebar]">
-        <Sidebar />
+      <aside className="flex items-center justify-between border-b border-neutral-400/60 bg-neutral-100 p-6 [grid-area:sidebar] min-[62rem]:block min-[62rem]:border-b-0 min-[62rem]:border-r">
+        <a href="#" className="inline-block min-[62rem]:hidden">
+          <img src="/assets/images/logo.svg" alt="Maison Soleil" className="h-9 w-auto" />
+        </a>
+
+        <button
+          type="button"
+          onClick={() => setIsMenuOpen(true)}
+          aria-label="Open menu"
+          className="focus-ring cursor-pointer rounded-lg border border-neutral-400 p-2 min-[62rem]:hidden"
+        >
+          <img src="/assets/images/icon-menu.svg" alt="" className="h-4 w-4" />
+        </button>
+
+        <div className="hidden h-full min-[62rem]:block">
+          <Sidebar />
+        </div>
       </aside>
 
-      <header className="flex items-start justify-between gap-6 p-8 [grid-area:header]">
+      {isMenuOpen && (
+        <div className="fixed inset-0 z-50 bg-neutral-100 p-6 min-[62rem]:hidden">
+          <Sidebar onClose={() => setIsMenuOpen(false)} />
+        </div>
+      )}
+
+      <header className="flex flex-col gap-6 p-6 [grid-area:header] min-[62rem]:flex-row min-[62rem]:items-center min-[62rem]:justify-between min-[62rem]:p-8">
         <div>
           <p className="text-xs font-semibold tracking-widest text-neutral-600">
             BOOKING · CONFIRMED
           </p>
           <h1 className="mt-2 font-serif text-4xl">
-            Bienvenue, <em className="italic">Lucia.</em>
+            Bienvenue, <em className="italic text-terracotta-600">Lucia.</em>
           </h1>
         </div>
 
@@ -25,9 +52,36 @@ function App() {
         </div>
       </header>
 
-      <main className="p-8 pt-0 [grid-area:main]"></main>
+      <main className="p-6 pt-0 [grid-area:main] min-[62rem]:p-8 min-[62rem]:pt-0">
+        <div className="flex flex-col gap-4 min-[62rem]:hidden">
+          <div className="rotate-2">
+            <WelcomeCard />
+          </div>
+          <ReceiptCard />
+        </div>
 
-      <footer className="grid grid-cols-3 gap-6 self-end p-8 pt-0 [grid-area:footer]">
+        <div className="group relative mx-auto hidden min-h-[30rem] w-[46rem] min-[62rem]:block">
+          <img
+            src="/assets/images/illustration-sun.svg"
+            alt=""
+            className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-24 w-24 -translate-x-1/2 -translate-y-1/2 scale-75 opacity-0 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-100"
+          />
+          <div className="absolute left-0 top-0 z-10 w-[22rem] -rotate-3 transition-transform duration-300 ease-out group-hover:-translate-x-16 group-hover:-rotate-6">
+            <ReceiptCard />
+          </div>
+          <div className="absolute left-[24rem] top-6 z-20 w-[22rem] rotate-3 transition-transform duration-300 ease-out group-hover:translate-x-16 group-hover:rotate-6">
+            <WelcomeCard />
+          </div>
+        </div>
+
+        <p className="mt-4 hidden items-center justify-center gap-2 text-center font-mono text-[0.6875rem] tracking-widest text-terracotta-600 min-[62rem]:flex">
+          <img src="/assets/images/icon-sparkle.svg" alt="" className="h-2 w-2" />
+          HOVER TO FAN
+          <img src="/assets/images/icon-sparkle.svg" alt="" className="h-2 w-2" />
+        </p>
+      </main>
+
+      <footer className="grid grid-cols-1 gap-6 self-end p-6 pt-0 [grid-area:footer] min-[62rem]:grid-cols-3 min-[62rem]:p-8 min-[62rem]:pt-0">
         <InfoCard
           icon="/assets/images/icon-key.svg"
           iconBg="bg-terracotta-600"
@@ -59,12 +113,7 @@ function App() {
               <dt className="text-neutral-600">PASSWORD</dt>
               <dd className="flex items-center gap-2">
                 soleil-2026
-                <button
-                  type="button"
-                  className="cursor-pointer rounded-full border border-neutral-400 px-2 py-0.5 text-[0.625rem] font-semibold"
-                >
-                  COPY
-                </button>
+                <CopyButton value="soleil-2026" />
               </dd>
             </div>
           </dl>

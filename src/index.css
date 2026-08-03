@@ -92,4 +92,8 @@
         "footer";
     }
   }
+
+  .focus-ring {
+    @apply focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta-500 active:outline active:outline-2 active:outline-offset-2 active:outline-terracotta-500;
+  }
 }

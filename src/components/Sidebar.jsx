@@ -8,12 +8,25 @@ const navItems = [
   { icon: "/assets/images/icon-mail.svg", label: "Messages" },
 ]
 
-function Sidebar() {
+function Sidebar({ onClose }) {
   return (
     <div className="flex h-full flex-col">
-      <a href="#" className="inline-block">
-        <img src="/assets/images/logo.svg" alt="Maison Soleil" className="h-9 w-auto" />
-      </a>
+      <div className="flex items-center justify-between">
+        <a href="#" className="inline-block">
+          <img src="/assets/images/logo.svg" alt="Maison Soleil" className="h-9 w-auto" />
+        </a>
+
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            aria-label="Close menu"
+            className="focus-ring cursor-pointer rounded-lg border border-neutral-400 p-2"
+          >
+            <img src="/assets/images/icon-close.svg" alt="" className="h-4 w-4" />
+          </button>
+        )}
+      </div>
 
       <hr className="my-6 border-neutral-400/60" />
 

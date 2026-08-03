@@ -7,7 +7,7 @@ function Button({ variant = "outline", className = "", children, ...props }) {
   return (
     <button
       type="button"
-      className={`cursor-pointer rounded-full border px-6 py-3 text-[0.8125rem] font-semibold transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-terracotta-500 ${variants[variant]} ${className}`}
+      className={`focus-ring cursor-pointer rounded-full border px-6 py-3 text-[0.8125rem] font-semibold transition-colors ${variants[variant]} ${className}`}
       {...props}
     >
       {children}

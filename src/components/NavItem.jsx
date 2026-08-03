@@ -3,11 +3,11 @@ function NavItem({ icon, label, active = false, badge }) {
     <li className="relative">
       <a
         href="#"
-        className={`flex items-center gap-3 rounded-full px-4 py-3 font-medium text-neutral-700 hover:bg-neutral-0 hover:text-neutral-900 ${
+        className={`focus-ring flex items-center gap-3 rounded-full px-4 py-3 font-medium text-neutral-700 hover:bg-neutral-0 hover:text-neutral-900 ${
           active ? "bg-neutral-0 text-neutral-900 shadow-sm" : ""
         }`}
       >
-        <img src={icon} alt="" className="h-4 w-4" />
+        <img src={icon} alt="" className="h-4 w-4 shrink-0" />
         {label}
       </a>
       {badge != null && (
