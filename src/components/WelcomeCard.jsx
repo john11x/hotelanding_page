@@ -4,7 +4,7 @@ function WelcomeCard() {
       <div>
         <div className="flex items-start justify-between">
           <p className="text-[0.6875rem] tracking-widest text-sun-50">WELCOME CARD</p>
-          <img src="/assets/images/icon-sun.svg" alt="" className="h-8 w-8" />
+          <img src="/assets/images/icon-sun.svg" alt="" className="h-12 w-12" />
         </div>
 
         <p className="mt-6 font-serif text-lg italic text-sun-200">A note from your host,</p>
