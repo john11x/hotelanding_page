@@ -55,7 +55,7 @@ function App() {
           <img
             src="/assets/images/illustration-sun.svg"
             alt=""
-            className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-24 w-24 -translate-x-1/2 -translate-y-1/2 scale-75 opacity-0 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-100"
+            className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-32 w-32 -translate-x-1/2 -translate-y-1/2 scale-75 opacity-0 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-100"
           />
           <div className="absolute left-1/2 top-1/2 grid w-[28rem] -translate-x-1/2 -translate-y-1/2">
             <div className="col-start-1 row-start-1 z-10 origin-bottom -translate-x-[13rem] -rotate-[4deg] transition-transform duration-300 ease-out group-hover:-translate-x-[19rem] group-hover:rotate-[8deg]">
