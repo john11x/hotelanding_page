@@ -2,6 +2,8 @@ import { useState } from "react"
 import Sidebar from "./components/Sidebar"
 import Button from "./components/Button"
 import InfoCard from "./components/InfoCard"
+import Footer from "./components/Footer"
+import Header from "./components/Header"
 import ReceiptCard from "./components/ReceiptCard"
 import WelcomeCard from "./components/WelcomeCard"
 import CopyButton from "./components/CopyButton"
@@ -36,21 +38,10 @@ function App() {
         </div>
       )}
 
-      <header className="flex flex-col gap-6 p-6 [grid-area:header] min-[62rem]:flex-row min-[62rem]:items-center min-[62rem]:justify-between min-[62rem]:p-8">
-        <div>
-          <p className="text-xs font-semibold tracking-widest text-neutral-600">
-            BOOKING · CONFIRMED
-          </p>
-          <h1 className="mt-2 font-serif text-4xl">
-            Bienvenue, <em className="italic text-terracotta-600">Lucia.</em>
-          </h1>
-        </div>
-
-        <div className="flex shrink-0 gap-3">
-          <Button variant="outline">Print receipt</Button>
-          <Button variant="solid">Add to calendar</Button>
-        </div>
-      </header>
+      <Header name="Lucia">
+        <Button variant="outline">Print receipt</Button>
+        <Button variant="solid">Add to calendar</Button>
+      </Header>
 
       <main className="p-6 pt-0 [grid-area:main] min-[62rem]:p-8 min-[62rem]:pt-0">
         <div className="flex flex-col gap-4 min-[62rem]:hidden">
@@ -66,11 +57,14 @@ function App() {
             alt=""
             className="pointer-events-none absolute left-1/2 top-1/2 z-0 h-24 w-24 -translate-x-1/2 -translate-y-1/2 scale-75 opacity-0 transition-all duration-300 ease-out group-hover:scale-100 group-hover:opacity-100"
           />
-          <div className="absolute left-0 top-0 z-10 w-[22rem] -rotate-3 transition-transform duration-300 ease-out group-hover:-translate-x-16 group-hover:-rotate-6">
-            <ReceiptCard />
-          </div>
-          <div className="absolute left-[24rem] top-6 z-20 w-[22rem] rotate-3 transition-transform duration-300 ease-out group-hover:translate-x-16 group-hover:rotate-6">
-            <WelcomeCard />
+          <div className="absolute left-1/2 top-1/2 grid w-[28rem] -translate-x-1/2 -translate-y-1/2">
+            <div className="col-start-1 row-start-1 z-10 origin-bottom -translate-x-[13rem] -rotate-[4deg] transition-transform duration-300 ease-out group-hover:-translate-x-[19rem] group-hover:rotate-[8deg]">
+              <ReceiptCard />
+            </div>
+            <div className="col-start-1 row-start-1 z-20 origin-bottom translate-x-[13rem] rotate-[4deg] transition-transform duration-300 ease-out group-hover:translate-x-[19rem] group-hover:-rotate-[8deg]">
+              <WelcomeCard />
+            </div>
+
           </div>
         </div>
 
@@ -81,7 +75,7 @@ function App() {
         </p>
       </main>
 
-      <footer className="grid grid-cols-1 gap-6 self-end p-6 pt-0 [grid-area:footer] min-[62rem]:grid-cols-3 min-[62rem]:p-8 min-[62rem]:pt-0">
+      <Footer>
         <InfoCard
           icon="/assets/images/icon-key.svg"
           iconBg="bg-terracotta-600"
@@ -131,7 +125,7 @@ function App() {
           Fresh figs, Marseille honey, pain au levain, and espresso. Gluten-free option? Leave a
           note the night before.
         </InfoCard>
-      </footer>
+      </Footer>
     </div>
   )
 }

@@ -1,6 +1,6 @@
 function ReceiptCard() {
   return (
-    <div className="w-full rounded-2xl border-t-2 border-dashed border-neutral-400 bg-neutral-0 p-6 shadow-xl">
+    <div className="h-full w-full rounded-2xl border-t-2 border-dashed border-neutral-400 bg-neutral-0 p-5 shadow-xl">
       <div className="flex items-start justify-between font-mono text-[0.6875rem] tracking-widest text-neutral-600">
         <span>RECEIPT</span>
         <span className="text-right">
@@ -10,9 +10,9 @@ function ReceiptCard() {
         </span>
       </div>
 
-      <h2 className="mt-2 font-serif text-2xl">Your stay</h2>
+      <h2 className="mt-1 font-serif text-2xl">Your stay</h2>
 
-      <div className="mt-6 flex items-start justify-between border-b border-dashed border-neutral-400 pb-6">
+      <div className="mt-3 flex items-start justify-between border-b border-dashed border-neutral-400 pb-3">
         <div>
           <p className="text-[0.6875rem] tracking-widest text-neutral-600">CHECK IN</p>
           <p className="mt-1 font-serif text-3xl">25 Apr</p>
@@ -25,7 +25,7 @@ function ReceiptCard() {
         </div>
       </div>
 
-      <dl className="mt-4 flex flex-col gap-2 text-sm text-neutral-700">
+      <dl className="mt-2 flex flex-col gap-1 text-sm text-neutral-700">
         <div className="flex items-center justify-between">
           <dt>Room · La Garrigue × 4 nights</dt>
           <dd>€ 620.00</dd>
@@ -40,12 +40,12 @@ function ReceiptCard() {
         </div>
       </dl>
 
-      <div className="mt-4 flex items-center justify-between border-t border-neutral-900 pt-4">
+      <div className="mt-2 flex items-center justify-between border-t border-neutral-900 pt-2">
         <span className="text-[0.6875rem] font-semibold tracking-widest">TOTAL PAID</span>
         <span className="font-serif text-2xl">€ 730.40</span>
       </div>
 
-      <div className="mt-6 flex items-end justify-between">
+      <div className="mt-3 flex items-end justify-between">
         <p className="font-mono text-[0.6875rem] tracking-widest text-neutral-600">
           PAID · WISE · GBP
         </p>
